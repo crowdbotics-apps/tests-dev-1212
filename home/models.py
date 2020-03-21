@@ -22,6 +22,13 @@ class CustomText(models.Model):
         on_delete=models.CASCADE,
         related_name="customtext_tests",
     )
+    test = models.ForeignKey(
+        "home.HomePage",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="customtext_test",
+    )
 
     def __str__(self):
         return self.title
