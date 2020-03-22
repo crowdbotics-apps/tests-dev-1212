@@ -29,6 +29,20 @@ class CustomText(models.Model):
         blank=True,
         related_name="customtext_user2",
     )
+    home2 = models.ForeignKey(
+        "home.HomePage",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="customtext_home2",
+    )
+    home3 = models.ForeignKey(
+        "home.HomePage",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="customtext_home3",
+    )
 
     def __str__(self):
         return self.title
