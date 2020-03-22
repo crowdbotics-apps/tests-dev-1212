@@ -9,25 +9,25 @@ from django.db import models
 class CustomText(models.Model):
     title = models.CharField(max_length=150,)
     user = models.ForeignKey(
-        "home.HomePage",
+        "users.User",
+        on_delete=models.CASCADE,
         null=True,
         blank=True,
-        on_delete=models.CASCADE,
         related_name="customtext_user",
     )
-    tests = models.ForeignKey(
-        "users.User",
-        null=True,
-        blank=True,
-        on_delete=models.CASCADE,
-        related_name="customtext_tests",
-    )
-    test = models.ForeignKey(
+    home = models.ForeignKey(
         "home.HomePage",
         on_delete=models.CASCADE,
         null=True,
         blank=True,
-        related_name="customtext_test",
+        related_name="customtext_home",
+    )
+    user2 = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="customtext_user2",
     )
 
     def __str__(self):
